@@ -1,0 +1,284 @@
+/* Saved-form preview page CSS — sits ON TOP of Bootstrap 5.3.3 */
+:root {
+  --form-bg: #ffffff;
+  --form-bg-alt: #f1f2f5;
+  --form-border: #e4e6eb;
+  --form-border-strong: #d0d3da;
+  --form-text-muted: #5a6072;
+  --form-text-faint: #9298a6;
+  --form-accent: #5b54e6;
+  --form-accent-2: #4942d4;
+  --form-accent-soft: #eeedfb;
+  --form-warning: #f5a623;
+  --form-success: #16a86b;
+  --form-danger: #e54848;
+}
+
+body { font-family: 'DM Sans', system-ui, -apple-system, sans-serif; }
+
+.formcraft-badge {
+  display: inline-block;
+  background: #eeedfb;
+  color: #5b54e6;
+  border: 1px solid rgba(91, 84, 230, 0.2);
+  border-radius: 20px;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  padding: 3px 12px;
+  text-transform: uppercase;
+}
+
+/* ─────── Form wrapper: width / border / shadow / rounded ─────── */
+.preview-form {
+  width: 100%;
+  background: var(--form-bg);
+  overflow: hidden;
+  margin: 0 auto;
+  transition: max-width 0.2s, border-radius 0.15s, box-shadow 0.15s;
+}
+.preview-form.width-sm   { max-width: 420px; }
+.preview-form.width-md   { max-width: 580px; }
+.preview-form.width-lg   { max-width: 800px; }
+.preview-form.width-xl   { max-width: 1100px; }
+.preview-form.width-xxl  { max-width: 1400px; }
+.preview-form.width-full { max-width: 100%; }
+.preview-form.has-border  { border: 1px solid var(--form-border); }
+.preview-form.has-shadow  { box-shadow: 0 4px 16px rgba(15,18,28,0.08); }
+.preview-form.has-rounded { border-radius: 12px; }
+
+/* ─────── Bootstrap accent recoloring → brand purple ─────── */
+.preview-form {
+  --bs-primary: #5b54e6;
+  --bs-primary-rgb: 91, 84, 230;
+  --bs-link-color-rgb: 91, 84, 230;
+}
+.preview-form .btn-primary {
+  --bs-btn-bg: #5b54e6;
+  --bs-btn-border-color: #5b54e6;
+  --bs-btn-hover-bg: #4942d4;
+  --bs-btn-hover-border-color: #4942d4;
+  --bs-btn-active-bg: #4942d4;
+  --bs-btn-active-border-color: #4942d4;
+}
+.preview-form .form-control:focus,
+.preview-form .form-select:focus,
+.preview-form .form-check-input:focus {
+  border-color: #5b54e6;
+  box-shadow: 0 0 0 0.25rem rgba(91, 84, 230, 0.2);
+}
+.preview-form .form-check-input:checked {
+  background-color: #5b54e6;
+  border-color: #5b54e6;
+}
+
+/* ─────── Tab panels — show/hide controlled by JS ─────── */
+.preview-tab-panel { display: none; }
+.preview-tab-panel.active { display: block; }
+.preview-tab-panel.single { display: block; }
+
+/* ─────── Horizontal tabs nav (Bootstrap nav-tabs + brand recolor) ─────── */
+.preview-form .nav-tabs.preview-tabs-nav {
+  background: var(--form-bg-alt);
+  border-bottom: 1px solid var(--form-border);
+  flex-wrap: nowrap;
+  overflow-x: auto;
+  margin-bottom: 0;
+  padding: 0 6px;
+}
+.preview-form .nav-tabs .nav-link {
+  border: none;
+  border-bottom: 2px solid transparent;
+  background: transparent;
+  color: var(--form-text-muted);
+  font-size: 13px;
+  font-weight: 500;
+  padding: 12px 18px;
+  white-space: nowrap;
+  margin-bottom: -1px;
+}
+.preview-form .nav-tabs .nav-link:hover {
+  background: rgba(0,0,0,0.04);
+  color: var(--form-accent);
+}
+.preview-form .nav-tabs .nav-link.active {
+  background: var(--form-bg);
+  color: var(--form-accent);
+  border-bottom-color: var(--form-accent);
+}
+
+/* ─────── Vertical tabs (Bootstrap nav-pills flex-column) ─────── */
+.preview-form.template-vertical-tabs { padding: 0; overflow: hidden; }
+.preview-vtabs-split {
+  display: grid;
+  grid-template-columns: 220px 1fr;
+  min-height: 360px;
+}
+.preview-vtabs-nav {
+  background: var(--form-bg-alt);
+  border-right: 1px solid var(--form-border);
+}
+.preview-form .nav-pills.preview-vtabs-nav .nav-link {
+  text-align: left;
+  color: var(--form-text-muted);
+  font-size: 13px;
+  font-weight: 500;
+  padding: 11px 14px;
+  border-radius: 6px;
+  background: transparent;
+}
+.preview-form .nav-pills.preview-vtabs-nav .nav-link:hover {
+  background: rgba(0,0,0,0.05);
+  color: var(--form-accent);
+}
+.preview-form .nav-pills.preview-vtabs-nav .nav-link.active {
+  background: var(--form-accent);
+  color: #fff;
+}
+.vtab-num {
+  width: 22px; height: 22px;
+  border-radius: 50%;
+  background: rgba(0,0,0,0.06);
+  color: var(--form-text-faint);
+  font-size: 11px;
+  font-weight: 600;
+  display: flex; align-items: center; justify-content: center;
+  flex-shrink: 0;
+  border: 1px solid var(--form-border-strong);
+}
+.preview-form .nav-pills.preview-vtabs-nav .nav-link.active .vtab-num {
+  background: rgba(255,255,255,0.2);
+  color: #fff;
+  border-color: rgba(255,255,255,0.4);
+}
+.preview-vtabs-panels { background: var(--form-bg); }
+
+/* ─────── Accordion (Bootstrap accordion + brand recolor) ─────── */
+.preview-form.template-accordion { padding: 0; }
+.preview-form .accordion {
+  --bs-accordion-active-color: #5b54e6;
+  --bs-accordion-active-bg: #eeedfb;
+  --bs-accordion-btn-focus-box-shadow: 0 0 0 0.25rem rgba(91,84,230,0.2);
+  --bs-accordion-border-radius: 0;
+  --bs-accordion-inner-border-radius: 0;
+  --bs-accordion-border-color: var(--form-border);
+}
+.preview-form .accordion-item:first-of-type,
+.preview-form .accordion-item:last-of-type,
+.preview-form .accordion-item:first-of-type .accordion-button,
+.preview-form .accordion-item:last-of-type .accordion-button.collapsed {
+  border-radius: 0;
+}
+
+/* ─────── Stepper (custom widget) ─────── */
+.preview-form.template-stepper { padding: 0; }
+.preview-stepper-bar {
+  display: flex; align-items: center;
+  padding: 24px 28px 18px;
+  background: var(--form-bg-alt);
+  border-bottom: 1px solid var(--form-border);
+}
+.stepper-step { display: flex; align-items: center; gap: 10px; flex: 1; }
+.stepper-step:last-child { flex: 0; }
+.stepper-circle {
+  width: 30px; height: 30px; border-radius: 50%;
+  background: var(--form-bg); border: 2px solid var(--form-border-strong);
+  color: var(--form-text-faint); font-size: 12px; font-weight: 600;
+  display: flex; align-items: center; justify-content: center;
+  flex-shrink: 0; transition: all 0.2s;
+}
+.stepper-step.active .stepper-circle {
+  background: var(--form-accent); border-color: var(--form-accent); color: #fff;
+  box-shadow: 0 0 0 4px rgba(91,84,230,0.12);
+}
+.stepper-step.done .stepper-circle { background: var(--form-success); border-color: var(--form-success); color: #fff; }
+.stepper-label { font-size: 12px; font-weight: 500; color: var(--form-text-faint); white-space: nowrap; }
+.stepper-step.active .stepper-label { color: var(--form-accent); font-weight: 600; }
+.stepper-step.done .stepper-label { color: #1a1d24; }
+.stepper-line {
+  flex: 1; height: 2px;
+  background: var(--form-border-strong);
+  margin: 0 8px; border-radius: 999px;
+  transition: background 0.2s; min-width: 20px;
+}
+.stepper-step.done .stepper-line { background: var(--form-success); }
+
+/* ─────── Single-page section labels ─────── */
+.preview-section-label {
+  font-size: 11px; font-weight: 600;
+  letter-spacing: 0.7px; text-transform: uppercase;
+  color: var(--form-accent);
+  padding: 12px 0 8px;
+  margin-bottom: 8px;
+  border-bottom: 1px solid var(--form-border);
+}
+.preview-section-label:first-child { padding-top: 0; }
+
+/* ─────── Custom widgets: Range slider (dual handles) ─────── */
+.preview-rangeslider { position: relative; padding: 18px 10px 8px; }
+.preview-rangeslider .rs-track {
+  position: relative; height: 6px;
+  background: rgba(0,0,0,0.08); border-radius: 999px;
+}
+.preview-rangeslider .rs-fill {
+  position: absolute; top: 0; bottom: 0;
+  background: var(--form-accent); border-radius: 999px;
+}
+.preview-rangeslider .rs-input {
+  position: absolute; top: 6px; left: 0; right: 0;
+  width: 100%; height: 30px;
+  background: transparent; pointer-events: none;
+  appearance: none; -webkit-appearance: none; margin: 0;
+}
+.preview-rangeslider .rs-input::-webkit-slider-thumb {
+  appearance: none; -webkit-appearance: none;
+  width: 18px; height: 18px; border-radius: 50%;
+  background: #fff; border: 2px solid var(--form-accent);
+  cursor: grab; pointer-events: auto;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.2); margin-top: -6px;
+}
+.preview-rangeslider .rs-input::-moz-range-thumb {
+  width: 18px; height: 18px; border-radius: 50%;
+  background: #fff; border: 2px solid var(--form-accent);
+  cursor: grab; pointer-events: auto;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.2);
+}
+.preview-rangeslider .rs-input::-webkit-slider-runnable-track { background: transparent; height: 6px; }
+.preview-rangeslider .rs-input::-moz-range-track { background: transparent; }
+
+/* ─────── Custom widget: Star rating ─────── */
+.preview-rating { display: flex; gap: 6px; }
+.preview-rating .star {
+  font-size: 26px; color: var(--form-border-strong);
+  cursor: pointer; transition: color 0.1s;
+}
+.preview-rating .star:hover, .preview-rating .star.filled { color: var(--form-warning); }
+
+/* ─────── Help text + disabled state for conditional logic ─────── */
+.preview-field .form-text {
+  font-size: 11.5px;
+  color: var(--form-text-faint);
+  margin-top: 5px;
+  font-style: italic;
+}
+.preview-field.preview-field-disabled { opacity: 0.55; }
+
+/* ─────── Mobile responsiveness ─────── */
+@media (max-width: 880px) {
+  .preview-form { width: 100% !important; max-width: 100% !important; }
+  .preview-tab-panel.p-4 { padding: 1.25rem 1rem !important; }
+  .preview-form.template-vertical-tabs .preview-vtabs-split { grid-template-columns: 1fr; }
+  .preview-form .nav-pills.preview-vtabs-nav {
+    flex-direction: row !important;
+    overflow-x: auto;
+    border-right: none;
+    border-bottom: 1px solid var(--form-border);
+    padding: 6px 8px;
+  }
+  .preview-form .nav-pills.preview-vtabs-nav .nav-link { white-space: nowrap; padding: 8px 12px; }
+  .preview-stepper-bar { padding: 16px 14px 12px; overflow-x: auto; }
+  .stepper-label { font-size: 11px; }
+}
+@media (max-width: 480px) {
+  .preview-tab-panel.p-4 { padding: 1rem 0.875rem !important; }
+}
