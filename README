@@ -67,8 +67,8 @@ Auto-detects four schema formats: FormCraft native, NodeForms tabbed array, Node
 
 ```bash
 # Unpack
-tar -xzf form-builder.tar.gz
-cd form-builder
+unzip -rf  nodejs-form-craft.zip
+cd  nodejs-form-craft
 
 # Install dependencies (only Express + EJS)
 npm install
