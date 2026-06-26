@@ -3,7 +3,14 @@
 A drag-and-drop form builder with multi-tab support, conditional logic, live preview, and export to multiple formats. Built with vanilla JS + Express, styled with Bootstrap 5.3.3
 
 ---
+# Support This Project ❤️
 
+If you find this project useful, please consider:
+
+⭐ **Starring this repository** to help others discover it.
+
+☕ **Buying me a coffee** to support future development and maintenance.
+https://www.paypal.com/ncp/payment/T2SQ9HEMBEMHE
 ## Features
 
 ### Form Building
