@@ -7,10 +7,8 @@ A drag-and-drop form builder with multi-tab support, conditional logic, live pre
 
 If you find this project useful, please consider:
 
-⭐ **Starring this repository** to help others discover it.
+⭐ **Starring this repository** to help others discover it and to support future development and maintenance.
 
-☕ **Buying me a coffee** to support future development and maintenance.
-https://www.paypal.com/ncp/payment/T2SQ9HEMBEMHE
 ## Features
 
 ### Form Building
